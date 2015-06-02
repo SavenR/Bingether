@@ -9,3 +9,7 @@ app.controller('mainController', function($http){
     })
 
 });
+
+{% verbatim %}
+    {{if dying}}Still alive.{{/if}}
+{% endverbatim %}
