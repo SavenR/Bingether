@@ -1,5 +1,5 @@
 <b>BINGETHER</b><br>
-A platform for find and meet people to binge watch your favorite shows.
+A platform for finding and meeting people to binge watch your favorite shows.
 
 v1.0 <br>
 Features:
