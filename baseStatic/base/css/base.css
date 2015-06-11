@@ -1,4 +1,4 @@
-html, body {
+html, body, .navItems {
     height: 100%;
 }
 
@@ -10,15 +10,32 @@ body {
     background-image: linear-gradient(to bottom,#eee,#ddd);
     border: 1px solid #bbb;
     height: 80px;
-    color: #555;
     -moz-box-shadow: 0 1px 3px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.3);
     box-shadow: 0 1px 10px rgba(0,0,0,.2);
-    text-decoration: none !important ;
+
 }
-.navbar div {
-    padding: none;
-    margin: none;
+.navItems {
+    display: table;
+}
+.navItem  {
+    height: 100%;
+    width: 175px;
+    border-left: 1px solid #bbb;
+    display: table-cell;
+    text-align: center;
+    float: right;
+    cursor: pointer;
+    /*padding-bottom: 10px;*/
+    color: #555;
+    line-height: 80px;
+    font-weight: bolder;
+
+
+}
+.navItems .navItem:hover {
+    color: #730B0B;
+    background-image: linear-gradient(to bottom,#ddd,#bbb);
 
 }
 #logoText {

@@ -1,8 +1,13 @@
 console.log('mainController.js')
 app.controller('mainController', function($http){
-    // var mc = this;
-    console.log('in mainController');
-
+    var mc = this,
+        pages = [
+            [ 'COMMUNITY', '/community' ],
+            [ 'MY BINGETHERS', '/my_bingethers' ],
+            [ 'PERSONAL BINGES', '/binge_list' ],
+            [ 'SEARCH', '/search' ],
+            [ 'LOG OUT', '/log_out' ]
+        ];
 
 });
 
