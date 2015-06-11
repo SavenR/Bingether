@@ -1,38 +1,40 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en">
 <head>
-    <title></title>
+
 
     <!-- styles -->
     <!-- Bootstrap -->
-
-<!--         <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"> -->
+        <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <link href='http://fonts.googleapis.com/css?family=Boogaloo' rel='stylesheet' type='text/css'>
 
 
     <!-- Project -->
-    <link type="text/css" rel="stylesheet" href="">
-
-    <!-- PageSpec -->
-    <link type="text/css" rel="stylesheet" href="">
-
+    <link type="text/css" rel="stylesheet" href="{% static 'base/css/base.css' %}">
 
     <!-- Metas -->
     <meta charSet="UTF-8">
 
 </head>
-<body ng-controller="mainController as mc">
-    <header>
+<body  ng-app="app">
+    <header class=".">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navLogo col-xs-4 col-md-4 navbar-left">
+                <a href="#" class="navbar-brand">
+                    <img class="logoImage" src="{% static 'base/media/Logo.png' %}">
+                </a>
+                <a href="/" >
+                    <p id="logoText" class="hidden-xs hidden-sm">Bingether</p>
+                </a>
 
+            </div>
+        </div>
     </header>
-    {% block content %}
+    <div ng-view class="container"></div>
 
-    {% endblock content %}
 
-    <footer>
-
-    </footer>
     <!-- scripts -->
     <!-- Framework -->
     <script type="text/javascript" rel="javascript" src="{% static 'jsframework/js/angular.1.3.15.min.js'%}"></script>
