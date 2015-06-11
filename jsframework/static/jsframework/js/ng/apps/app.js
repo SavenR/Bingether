@@ -1,4 +1,4 @@
-console.log('in app.js')
+
 var app = angular.module("app", ['ngRoute']);
 
 app.config(['$routeProvider', function($routeProvider){
@@ -34,4 +34,13 @@ app.config(['$routeProvider', function($routeProvider){
         controller: 'mainController',
         title: 'Welcome'
     })
+    .when('/uh_oh', {
+        templateUrl: '/static/jsframework/views/uhOh.html',
+        controller: 'mainController',
+        title: 'Oh no...'
+    })
+    .otherwise({
+        redirectTo: '/uh_oh'
+    })
 }]);
+
