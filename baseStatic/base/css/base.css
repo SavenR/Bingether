@@ -4,6 +4,7 @@ html, body {
 
 body {
     background-color: #CCCCCC;
+    padding-top: 80px;
 }
 .navbar {
     background-image: linear-gradient(to bottom,#eee,#ddd);

@@ -21,8 +21,9 @@ from jsframework import urls as j_urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'jsframework.views.index', name='index'),
-    url(r'^', include(j_urls)),
+    # url(r'^api/', include(j_urls)),
+    url(r'^', 'jsframework.views.base', name='base'),
+
 ]
 
 if settings.DEBUG:

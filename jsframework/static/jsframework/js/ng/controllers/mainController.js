@@ -1,15 +1,11 @@
+console.log('mainController.js')
 app.controller('mainController', function($http){
-    var mc = this;
+    // var mc = this;
+    console.log('in mainController');
 
-    // template API connection to /slugs
-    $http.get('/slugs')
-    .then(function(data){
-        console.log('connected to api')
-        console.log(data);
-    })
 
 });
 
-{% verbatim %}
-    {{if dying}}Still alive.{{/if}}
-{% endverbatim %}
+// {% verbatim %}
+//     {{if dying}}Still alive.{{/if}}
+// {% endverbatim %}
