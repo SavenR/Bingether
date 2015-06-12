@@ -60,3 +60,4 @@ target/
 local_settings*
 z_misc/*
 .DS_Store*
+*.pyc
