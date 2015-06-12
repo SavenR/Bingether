@@ -1,0 +1,23 @@
+form {
+    width: 100%;
+}
+.searchWrapper {
+    width: 80%;
+    margin: 1% auto;
+}
+#searchBox {
+    height: 50px;
+    border-radius: 2em;
+    font-size: 200%;
+    line-height: 50px;
+    margin: 0 auto;
+}
+#searchBox:focus {
+    outline: none;
+}
+#submitButton {
+    position: absolute;
+    left: -99999px;
+    width: 1px;
+    height: 1px;
+}
