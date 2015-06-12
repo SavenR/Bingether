@@ -1,9 +1,10 @@
 <div class="row">
     <h1 class="col-md-12">Search for a show:</h1>
 </div>
-<form class="row">
+<form class="row" action="javascript:console.log(document.getElementById('searchBox').value)">
     <div class="searchWrapper">
-        <input type="text" id="searchBox" class="col-md-12" tabindex="1" val="Enter a show name">
+        <input type="text" id="searchBox" class="col-md-12" tabindex="1" name="searchBox">
     </div>
     <input type="submit" id="submitButton" tabindex="2">
 </form>
+<!-- Page Specific Scripts -->
