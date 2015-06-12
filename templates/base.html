@@ -1,8 +1,8 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
-    <title>Bingether</title>
+
 
     <!-- styles -->
     <!-- Bootstrap -->
@@ -17,8 +17,14 @@
     <!-- Metas -->
     <meta charSet="UTF-8">
 
+
+
+    {% verbatim %}
+    <title> {{ title }} </title>
+    <link type="text/css" rel="stylesheet" href= {{css}} >
+    {% endverbatim %}
 </head>
-<body  ng-app="app">
+<body  >
     <header class=".">
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navLogo col-xs-4 col-md-4 navbar-left">

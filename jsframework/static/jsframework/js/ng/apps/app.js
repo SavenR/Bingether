@@ -32,7 +32,8 @@ app.config(['$routeProvider', function($routeProvider){
     .when('/', {
         templateUrl: '/static/jsframework/views/index.html',
         controller: 'mainController',
-        title: 'Welcome'
+        title: 'Welcome',
+        css: 'static/base/css/test.css'
     })
     .when('/uh_oh', {
         templateUrl: '/static/jsframework/views/uhOh.html',
@@ -44,3 +45,12 @@ app.config(['$routeProvider', function($routeProvider){
     })
 }]);
 
+app.run(['$location', '$rootScope', function($location, $rootScope){
+    $rootScope.$on( '$routeChangeSuccess', function( event, current, previous ){
+        if (current.$$route){
+            $rootScope.title = current.$$route.title;
+
+        }
+    } )
+}
+]);
