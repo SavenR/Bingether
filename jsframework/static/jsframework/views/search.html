@@ -1,10 +1,9 @@
 <div class="row">
     <h1 class="col-md-12">Search for a show:</h1>
 </div>
-<form class="row" action="javascript:console.log(document.getElementById('searchBox').value)">
+<form class="row" ng-submit="pc.searchGB()">
     <div class="searchWrapper">
-        <input type="text" id="searchBox" class="col-md-12" tabindex="1" name="searchBox">
+        <input type="text" id="searchBox" class="col-md-12" tabindex="1" name="searchBox" ng-model="pc.showTitle">
     </div>
     <input type="submit" id="submitButton" tabindex="2">
 </form>
-
