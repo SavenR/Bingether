@@ -1,4 +1,3 @@
-console.log('mainController.js')
 app.controller('mainController', function($http){
     var mc = this,
         pages = [

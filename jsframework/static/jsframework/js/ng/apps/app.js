@@ -5,43 +5,43 @@ app.config( [ '$routeProvider', function( $routeProvider ){
     $routeProvider
     .when( '/search', {
         templateUrl: '/static/jsframework/views/search.html',
-        controller: 'mainController',
         title: 'Search Page',
+        controller: 'searchC',
         css: 'static/app/css/search.css'
      } )
     .when( '/binge_list', {
         templateUrl: '/static/jsframework/views/bingeList.html',
-        controller: 'mainController',
+        controller: 'bingeListC',
         title: 'Binges to Be',
         css: 'static/app/css/bingeList.css'
      } )
     .when( '/community', {
         templateUrl: '/static/jsframework/views/communityBRs.html',
-        controller: 'mainController',
+        controller: 'communityBRsC',
         title: 'Community Bingether Requests',
         css: 'static/app/css/communityBRs.css'
      } )
     .when( '/my_bingethers', {
         templateUrl: '/static/jsframework/views/myBingethers.html',
-        controller: 'mainController',
+        controller: 'myBingethersC',
         title: 'My Bingethers',
         css: 'static/app/css/myBingethers.css'
      } )
     .when( '/log_out', {
         templateUrl: '/static/jsframework/views/logOut.html',
-        controller: 'mainController',
+        controller: 'logOutC',
         title: 'Take care!',
         css: 'static/app/css/logOut.css'
     })
     .when( '/', {
         templateUrl: '/static/jsframework/views/index.html',
-        controller: 'mainController',
+        controller: 'indexC',
         title: 'Welcome',
         css: 'static/app/css/index.css'
     })
     .when( '/uh_oh', {
         templateUrl: '/static/jsframework/views/uhOh.html',
-        controller: 'mainController',
+        controller: 'uhOhC',
         title: 'Oh no...',
         css: 'static/app/css/uhOh.css'
     })
