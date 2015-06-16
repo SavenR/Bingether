@@ -8,13 +8,18 @@
     <input type="submit" id="submitButton" tabindex="2">
 </form>
 <br>
-<h2>{{ pc.searchStatement }}</h2>
+<h2 class="row">{{ pc.searchStatement }}</h2>
 <div id="resultsWrapper">
-    <div class="showResult" ng-repeat="show in pc.shows">
-        <img src="{{show.artwork_304x171}}"><br>
-        {{show.title}}<br>
-        {{show.year}}<br>
-        {{show.overview}}<br>
+    <div class="showResult row" ng-repeat="show in pc.shows">
+        <img class="showImage col-md-3" src="{{show.artwork_304x171}}">
+        <div class="showDetails col-md-9">
+            <span class="showTitle">{{show.title}}</span>
+            <span class="showYear">({{show.year}})</span>
+            <div class="showOverview">
+                {{show.overview}}
+            </div>
+        </div>
+
     </div>
 
 </div>
