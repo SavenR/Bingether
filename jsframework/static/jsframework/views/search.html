@@ -7,3 +7,14 @@
     </div>
     <input type="submit" id="submitButton" tabindex="2">
 </form>
+<br>
+<h2>{{ pc.searchStatement }}</h2>
+<div id="resultsWrapper">
+    <div class="showResult" ng-repeat="show in pc.shows">
+        <img src="{{show.artwork_304x171}}"><br>
+        {{show.title}}<br>
+        {{show.year}}<br>
+        {{show.overview}}<br>
+    </div>
+
+</div>

@@ -1,28 +1,31 @@
-app.controller('searchC', function($http){
+app.controller('searchC', function($http, $q){
     var self = this,
         baseUrl = 'https://api-public.guidebox.com/v1.43/us/rKz5kRcTCXufMqGHHupHnNBtX6XfTNgI/';
     // debugging, deleteMe
     self.showTitle = "Pokemon";
 
-    // self.battleCry= "WE'RE HERE!!!";
     self.lastTitle = "";
+    self.shows = [];
 
     self.searchGB = function(){
         if (!self.showTitle || self.showTitle === self.lastTitle){
             return
         };
+        self.shows = [];
 
         self.lastTitle = self.showTitle;
+
+        // Cleaning title for GuideBox API
         self.titleTE = self.showTitle.split(' ').join('%252520');
 
-        // Complete the AJAX request and store the return packet
-        $http.get( baseUrl + 'search/title/' + self.titleTE + '/fuzzy'
-        )
-        .then( function( response ){
-            self.shows = response.data.results.sort(function(a,b){
-                if (a.title.length < b.title.length) { return -1; }; return 1;
-            });
 
+
+
+        // Search GuideBox API using the cleaned title
+        $http.get( baseUrl + 'search/title/' + self.titleTE + '/fuzzy')
+        .then( function( response ){
+            console.log(1);
+            return response.data.results;
         },
         function( response ){
             console.log( 'An error has occurred: ' );
@@ -30,19 +33,62 @@ app.controller('searchC', function($http){
             console.log( response.statusText );
             console.log( response.data.error );
         })
-        .then( function(){
-            angular.forEach( self.shows, function( item, place ){
-                $http.get( baseUrl + 'show/' + item.id )
-                .then(function( response ){
-                    // console.log( response.data );
-                    // console.log( self.shows[place] );
-                    self.shows[place]['overview'] = response.data.overview;
-                    self.shows[place]['year'] = response.data.first_aired.substring(0, 4);
+
+        .then( function( response ){
+            // var promises =
+            console.log(2);
+            // var tvShows = []
+            return response.map(function( item, place, input ){
+
+
+                return $http.get( baseUrl + 'show/' + item.id )
+                .success(function( data ){
+                    var response = {'data': data};
+                    if ( response.data.type === "television" ){
+                        self.shows.push(item);
+
+
+
+                        var lastIndex = self.shows.length - 1;
+                        self.shows[lastIndex]['overview'] = response.data.overview;
+
+                        // first_aired can === false...
+                        self.shows[lastIndex]['year'] = (parseInt(response.data.first_aired) || null);
+
+                        self.shows.sort(function(a,b){
+                            if (a.title.length < b.title.length) { return -1; }; return 1;
+                        });
+
+                    };
+                    return 1;
+                })
+                .then(function(response){
+                    console.log(self.shows);
                 })
                 ;
-            } )
+
+
+            });
+            // console.log(promises)
+
          })
-        ;
+        .then( function( response ){
+            // console.log(response);
+            console.log(3);
+            // console.log(self.shows);
+            // response.sort(function(a,b){
+            //     if (a.title.length < b.title.length) { return -1; }; return 1;
+            // });
+            // var shows = response.length;
+            // // console.log(shows);
+
+            // self.searchStatement =
+            // shows + ' Search Result' +
+            // ( shows === 1 ? ' ' : 's ' )  +
+            // 'for ' + self.showTitle +
+            // (self.shows.length ?  ':' : '.') ;
+        });
+        // console.log(self.shows);
     }
 
 });
