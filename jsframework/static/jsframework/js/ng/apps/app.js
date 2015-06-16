@@ -60,10 +60,8 @@ app.config( [ '$routeProvider', function( $routeProvider ){
 app.run( [ '$location', '$rootScope', function( $location, $rootScope ){
     $rootScope.$on( '$routeChangeSuccess', function( event, current, previous ){
         if ( current.$$route ){
-            document.getElementById('pageTitle').innerHTML = current.$$route.title;
-            document.getElementById('pageCSS').setAttribute('href', current.$$route.css);
+            document.getElementById( 'pageTitle' ).innerHTML = current.$$route.title;
+            document.getElementById( 'pageCSS' ).setAttribute( 'href', current.$$route.css );
         }
-
     } )
-}
-]);
+}]);
