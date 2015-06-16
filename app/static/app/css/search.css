@@ -1,3 +1,7 @@
+.searchTitle {
+    font-weight: 600;
+    font-size: 36px;
+}
 form {
     width: 100%;
 }
@@ -11,9 +15,12 @@ form {
     font-size: 200%;
     line-height: 50px;
     margin: 0 auto;
+    color: #999;
+    font-weight: 500;
 }
 #searchBox:focus {
     outline: none;
+    color: #633;
 }
 #submitButton {
     position: absolute;
@@ -21,12 +28,22 @@ form {
     width: 1px;
     height: 1px;
 }
+.searchStatement {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333333;
+    width: 82%;
+    margin: 30px auto 20px;
+}
 .showResult {
     border-bottom: 2px dotted #777;
     padding: 10px;
     width: 80%;
     /*display: block;*/
     margin: 10px auto;
+}
+.showResult:last-of-type {
+    border-bottom: none;
 }
 .showTitle {
     color: #5b3c3c;

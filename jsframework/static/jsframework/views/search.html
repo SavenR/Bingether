@@ -1,5 +1,5 @@
 <div class="row">
-    <h1 class="col-md-12">Search for a show:</h1>
+    <h1 class="searchTitle col-md-12">Search for a show:</h1>
 </div>
 <form class="row" ng-submit="pc.searchGB()">
     <div class="searchWrapper">
@@ -8,7 +8,7 @@
     <input type="submit" id="submitButton" tabindex="2">
 </form>
 <br>
-<h2 class="row">{{ pc.searchStatement }}</h2>
+<h2 class="row searchStatement">{{ pc.searchStatement }}</h2>
 <div id="resultsWrapper">
     <div class="showResult row" ng-repeat="show in pc.shows">
         <img class="showImage col-md-3" src="{{show.artwork_304x171}}">
