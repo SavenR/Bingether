@@ -37,7 +37,7 @@ app.controller('searchC', function($http, $q){
         .then( function( response ){
             // var promises =
             console.log(2);
-            // var tvShows = []
+            var tvShows = []
             return response.map(function( item, place, input ){
 
 
@@ -45,24 +45,36 @@ app.controller('searchC', function($http, $q){
                 .success(function( data ){
                     var response = {'data': data};
                     if ( response.data.type === "television" ){
-                        self.shows.push(item);
+                        tvShows.push(item);
 
 
 
                         var lastIndex = self.shows.length - 1;
-                        self.shows[lastIndex]['overview'] = response.data.overview;
+                        tvShows[lastIndex]['overview'] = response.data.overview;
 
                         // first_aired can === false...
-                        self.shows[lastIndex]['year'] = (parseInt(response.data.first_aired) || null);
+                        tvShows[lastIndex]['year'] = (parseInt(response.data.first_aired) || null);
 
-                        self.shows.sort(function(a,b){
-                            if (a.title.length < b.title.length) { return -1; }; return 1;
-                        });
+                        return 1
 
                     };
-                    return 1;
+                    return 0;
                 })
                 .then(function(response){
+                    console.log(response)
+                    tvShows.sort(function(a,b){
+                            if (a.title.length < b.title.length) { return -1; }; return 1;
+                        });
+                    self.shows = tvShows;
+
+                    var shows = tvShows.length;
+
+                    self.searchStatement =
+                    shows + ' Search Result' +
+                    ( shows === 1 ? ' ' : 's ' )  +
+                    'for ' + self.showTitle +
+                    (self.shows.length ?  ':' : '.') ;
+
                     console.log(self.shows);
                 })
                 ;
@@ -72,22 +84,7 @@ app.controller('searchC', function($http, $q){
             // console.log(promises)
 
          })
-        .then( function( response ){
-            // console.log(response);
-            console.log(3);
-            // console.log(self.shows);
-            // response.sort(function(a,b){
-            //     if (a.title.length < b.title.length) { return -1; }; return 1;
-            // });
-            // var shows = response.length;
-            // // console.log(shows);
 
-            // self.searchStatement =
-            // shows + ' Search Result' +
-            // ( shows === 1 ? ' ' : 's ' )  +
-            // 'for ' + self.showTitle +
-            // (self.shows.length ?  ':' : '.') ;
-        });
         // console.log(self.shows);
     }
 
