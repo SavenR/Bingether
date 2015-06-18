@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en">
 <head>
     <!-- Metas -->
     <meta charSet="UTF-8">
@@ -10,7 +10,7 @@
     {% block header %}<title id="pageTitle">&lrm;</title>{% endblock header %}
 
 </head>
-<body  >
+<body>
     <header class=".">
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navLogo col-xs-4 col-md-4 navbar-left">
@@ -28,12 +28,8 @@
                 <a  class="navItem hidden-xs hidden-sm" href="{% url 'logout' %}">LOGOUT
                 {% else %}
                 <a  class="navItem hidden-xs hidden-sm" href="{% url 'login' %}">LOG IN | REGISTER
-    {% endif %}
+                {% endif %}
                 </a>
-
-
-
-
                 <a  class="navItem hidden-xs hidden-sm" href="../#/search">SEARCH</a>
                 <a  class="navItem hidden-xs hidden-sm" href="../#/binge_list">PERSONAL BINGES</a>
                 <a  class="navItem hidden-xs hidden-sm" href="../#/my_bingethers">MY BINGETHERS</a>
@@ -41,10 +37,19 @@
             </ul>
         </div>
     </header>
-    <div class="container">
-    {% block content %}<ng-view></ng-view>{% endblock content %}
+    {% block content %}
+        {% if user.is_authenticated %}
+            <div class="container"  ng-app="app">
+                <ng-view></ng-view>
+            </div>
+        {%  else %}
+            Please login
+        {% endif %}
+
+    {% endblock content %}
+    <div>
+        {% include 'scripts.html' %}
     </div>
-    {% include 'scripts.html' %}
 
 
 </body>
