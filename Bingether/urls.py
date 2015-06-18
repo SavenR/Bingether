@@ -24,6 +24,7 @@ urlpatterns = [
     # url(r'^api/', include(j_urls)),
     url(r'^register/$', 'app.views.register', name='register'),
     url(r'^login/$', 'django.contrib.auth.views.login', name='login'),
+    url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/logged-out'}),
     url(r'^', 'jsframework.views.base', name='base'),
 
 ]
