@@ -22,6 +22,7 @@ from jsframework import urls as j_urls
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^api/', include(j_urls)),
+    url(r'^register/$', 'app.views.register', name='register'),
     url(r'^', 'jsframework.views.base', name='base'),
 
 ]
