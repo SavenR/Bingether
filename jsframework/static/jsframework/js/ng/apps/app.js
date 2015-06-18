@@ -31,13 +31,6 @@ app.config( [ '$routeProvider', function( $routeProvider ){
         title: 'My Bingethers',
         css: 'static/app/css/myBingethers.css'
      } )
-    .when( '/log_out', {
-        templateUrl: '/static/jsframework/views/logOut.html',
-        controller: 'logOutC',
-        controllerAs: 'pc',
-        title: 'Take care!',
-        css: 'static/app/css/logOut.css'
-    })
     .when( '/', {
         templateUrl: '/static/jsframework/views/index.html',
         controller: 'indexC',
