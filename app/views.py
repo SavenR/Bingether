@@ -15,5 +15,5 @@ def register(request):
 
     return render(request, "registration/register.html", {'form': form})
 
-def logout(request):
+def loggedOut(request):
     return render(request, 'registration/logged-out.html')
