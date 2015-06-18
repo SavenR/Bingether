@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block header %}
+    <title>Later!</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'app/css/uhOh.css' %}">
+{% endblock header %}
 
 {% block content %}
-Alright, well, have fun out there in the real world. Let us know if you want to binge watch some AoT sometime, OK?
-<script>
-console.log('yo');
-</script>
+<h1>Heading out?</h1>
+<p>
+    Alright, well, have fun out there in the real world. Let us know if you want to catch some AoT sometime, OK?
+</p>
+
 {% endblock content %}
