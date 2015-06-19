@@ -4,7 +4,9 @@
 {% block header %}{% if user.is_authenticated %}
     <title>Uh Oh</title>
     <link type="text/css" rel="stylesheet" href="{% static 'app/css/uhOh.css' %}">
-{% else %}<title>Join</title>{% endif %}
+{% else %}<title>Join</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'app/css/welcome.css' %}">
+{% endif %}
 {% endblock header %}
 
 
