@@ -28,7 +28,15 @@ h1 .logoText {
     font-weight: bolder;
     text-align: center;
     padding: 5%;
-    /*display: table-cell;*/
+}
+.formHeader {
+    text-align: left;
+    padding-left: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    /*margin-bottom: 0;*/
+    height: auto;
+    margin-top: 0;
 }
 .verticalDivider {
     height: 90%;
@@ -41,10 +49,17 @@ h1 .logoText {
     height: 30%;
 }
 .CTA {
-    text-align: center;
-    margin-top: 2em;
     font-weight: bolder;
     font-size: 20px;
+}
+.buttonLabel {
+    text-align: center;
+    margin-top: 2em;
+}
+span.helptext {
+    font-size: 12px;
+    font-weight: 400;
+    display: block;
 }
 .CTAButton {
     width: 200px;
@@ -57,4 +72,24 @@ h1 .logoText {
     line-height: 60px;
     font-size: 25px;
     margin: 15px auto;
+}
+.signInBtn {
+    width: 100px;
+    height: auto;
+    line-height: 15px;
+    font-size: 15px;
+    margin: 20px 0;
+}
+.CTAButton:hover, .signInBtn:hover, form a:hover {
+    background-color: #BDBDBD;
+    color: #8B0000;
+}
+form {
+    border-radius: 5px;
+    background-color: #F0ECEC;
+    display: block;
+    padding: 10px 10px;
+}
+form a {
+    color: #8B0000;
 }
