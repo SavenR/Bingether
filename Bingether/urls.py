@@ -22,7 +22,7 @@ from jsframework import urls as j_urls
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^api/', include(j_urls)),
-    url(r'^register/$', 'app.views.register', name='register'),
+    url(r'^join/$', 'app.views.join', name='join'),
     url(r'^login/$', 'django.contrib.auth.views.login', name='login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/logged-out/'}, name='logout'),
     url(r'^logged-out/$', 'app.views.loggedOut', name='loggedOut'),

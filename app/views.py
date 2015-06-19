@@ -4,7 +4,7 @@ from app.forms import EmailUserCreationForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-def register(request):
+def join(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -13,7 +13,7 @@ def register(request):
     else:
         form = UserCreationForm()
 
-    return render(request, "registration/register.html", {'form': form})
+    return render(request, "registration/join.html", {'form': form})
 
 def loggedOut(request):
     return render(request, 'registration/logged-out.html')

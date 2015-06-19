@@ -30,7 +30,7 @@
         </div>
         <div class="row formHolder"><form class="col-md-6 col-md-offset-3 CTA" method="post" action="">{% csrf_token %}{{ form.as_p }}
                 <input type="submit" value="SIGN IN" class="CTAButton signInBtn">
-                <p>Not member? <a href="{% url 'register' %}">Join!</a></p>
+                <p>Not member? <a href="{% url 'join' %}">Join!</a></p>
             </form>
 
             </div>
