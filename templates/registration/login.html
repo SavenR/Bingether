@@ -1,8 +1,22 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block header %}
-    <title>Sign In</title>
-{% endblock header %}{% block content %}
+
+{% block header %}{% if user.is_authenticated %}
+    <title>Uh Oh</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'app/css/uhOh.css' %}">
+{% else %}<title>Sign In</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'app/css/welcome.css' %}">
+{% endif %}
+{% endblock header %}
+
+
+{% block content %}
+{% if user.is_authenticated %}
+    <div class="container">
+        <h1>Welcome back again, again!</h1>
+        <p>Looks like you already logged in. Not to encourage you, but did you mean to <a href="{% url 'logout' %}">log out</a>?</p>
+    </div>
+{% else %}
 <div class="container">
 <div class="centered">
     <h1 class="row"><span class="logoText">Bingether</span></h1>
@@ -23,5 +37,5 @@
         </div>
     </div>
 </div>
-</div>
+</div>{% endif %}
 {% endblock %}
