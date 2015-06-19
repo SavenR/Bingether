@@ -45,7 +45,7 @@ body {
         display: none;
     }
     .login:after {
-    content: 'LOGIN';
+    content: 'SIGN IN';
     }
 }
 .logoText {
