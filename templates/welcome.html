@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <div class="centered">
     <h1 class="row"><span class="logoText">Bingether</span></h1>
 </div>
@@ -11,16 +12,14 @@
         <div class="row buttonRow">
             <div class="signIn col-md-5 col-md-offset-1 homeBody">
                 <p class="CTA">Already a member?</p>
-                <a class="CTAButton" href="/login/">SIGN IN</a>
+                <a class="CTAButton" href="{% url 'login' %}">SIGN IN</a>
             </div>
             <div class="col-md-1 homeBody"><div class="verticalDivider"></div></div>
             <div class="join col-md-5 homeBody">
                 <p class="CTA">Not on Bingether?</p>
-                <a class="CTAButton" href="../register">JOIN</a>
+                <a class="CTAButton" href="{% url 'register' %}">JOIN</a>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Page Specific Scripts -->
-<script type="text/javascript" rel="javascript" src=""></script>
