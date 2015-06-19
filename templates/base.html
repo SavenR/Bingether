@@ -14,12 +14,12 @@
 <body>
     <header class=".">
         <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navLogo col-xs-4 col-md-4 navbar-left">
-                <a href="#/" class="navbar-brand">
+            <div class="navLogo col-xs-3 col-md-4 navbar-left">
+                <a href="../#/" class="navbar-brand">
                     <img class="logoImage" src="{% static 'base/media/Logo.png' %}">
                 </a>
-                <a href="#/" >
-                    <p id="logoText" class="hidden-xs hidden-sm">Bingether</p>
+                <a href="../#/" class="hidden-xs hidden-sm">
+                    <p class="logoText">Bingether</p>
                 </a>
 
             </div>
@@ -28,7 +28,7 @@
                 {% if user.is_authenticated %}
                 <a  class="navItem hidden-xs hidden-sm" href="{% url 'logout' %}">LOGOUT
                 {% else %}
-                <a  class="navItem hidden-xs hidden-sm" href="{% url 'login' %}">LOG IN | REGISTER
+                <a  class="navItem login" href="{% url 'login' %}"><span>LOG IN | REGISTER</span>
                 {% endif %}
                 </a>
                 <a  class="navItem hidden-xs hidden-sm" href="../#/search">SEARCH</a>
@@ -44,7 +44,9 @@
                 <ng-view></ng-view>
             </div>
         {%  else %}
-            Please login
+            <div class="container"  ng-app="lOut">
+                <ng-view></ng-view>
+            </div>
         {% endif %}
 
     {% endblock content %}

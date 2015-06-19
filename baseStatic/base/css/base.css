@@ -13,7 +13,6 @@ body {
     -webkit-box-shadow: 0 1px 10px rgba(0,0,0,.2);
     box-shadow: 0 1px 10px rgba(0,0,0,.2);
 }
-
 .navItem  {
     width: 175px;
     border-left: 1px solid #bbb;
@@ -28,7 +27,28 @@ body {
     color: #730B0B;
     background-image: linear-gradient(to bottom,#ddd,#bbb);
 }
-#logoText {
+@media screen and (max-width: 1370px) {
+  body {
+    /*background-color: red;*/
+  }
+  .navItem  {
+    width: auto;
+    padding: 0 10px 0 10px;
+    /*line-height: 40px;*/
+    /*border-left: 1px solid #bbb;*/
+    /*border-right: 1px solid #bbb;*/
+    height: 100%;
+  }
+}
+@media screen and (max-width: 1000px) {
+    .login span {
+        display: none;
+    }
+    .login:after {
+    content: 'LOGIN';
+    }
+}
+.logoText {
     font-family: 'Boogaloo', cursive;
     font-size: 50px;
     color: #616161;
