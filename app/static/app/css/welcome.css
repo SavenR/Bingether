@@ -1,0 +1,60 @@
+html, body, .container, .homeBody{
+    height: 100%;
+}
+body {
+    overflow: hidden;
+}
+@media screen and (max-width: 992px) {
+  body {
+    overflow: auto;
+  }
+}
+h1 {
+    color: #616161;
+    text-align: center;
+    line-height: 90px;
+}
+h1 .logoText {
+    font-size: 100px;
+    line-height: 200px;
+}
+.centered img {
+    margin: 0 auto;
+    display: block;
+}
+.WWA {
+    height: 20%;
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+    padding: 5%;
+    /*display: table-cell;*/
+}
+.verticalDivider {
+    height: 90%;
+    margin-top: 1em;
+    border-radius: 5em;
+    /*background-color: #890304;*/
+    background-image: radial-gradient(ellipse, rgba(137, 3, 4, .95), rgba(137, 3, 4, .75), rgba(137, 3, 4, .5), rgba(137, 3, 4, .25), rgba(137, 3, 4, 0), rgba(137, 3, 4, 0), rgba(137, 3, 4, 0));
+}
+.buttonRow {
+    height: 30%;
+}
+.CTA {
+    text-align: center;
+    margin-top: 2em;
+    font-weight: bolder;
+    font-size: 20px;
+}
+.CTAButton {
+    width: 200px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: #F0ECEC;
+    color: #8B0000;
+    display: block;
+    text-align: center;
+    line-height: 60px;
+    font-size: 25px;
+    margin: 15px auto;
+}
