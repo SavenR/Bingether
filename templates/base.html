@@ -6,11 +6,13 @@
     <meta charSet="UTF-8">
     <base href='/'>
     {% include 'styles.html' %}
+
+    {% block header %}
     {% if user.is_authenticated %}<title id="pageTitle">&lrm;</title>
-    {% else %}{% block header %}<title>Hey there</title>{% endblock header %}
+    {% else %}<title>Hey there</title>
         <link type="text/css" rel="stylesheet" href="{% static 'app/css/welcome.css' %}">
     {% endif %}
-
+    {% endblock header %}
 </head>
 <body>
     <header class=".">
