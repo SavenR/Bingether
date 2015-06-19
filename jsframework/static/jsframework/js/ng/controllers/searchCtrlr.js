@@ -2,7 +2,7 @@ app.controller('searchC', function($http, $q){
     var self = this,
         baseUrl = 'https://api-public.guidebox.com/v1.43/us/rKz5kRcTCXufMqGHHupHnNBtX6XfTNgI/';
     // debugging, deleteMe
-    self.showTitle = "Pokemon";
+    self.showTitle = "Robo";
 
     self.lastTitle = "";
     self.shows = [];
@@ -72,4 +72,12 @@ app.controller('searchC', function($http, $q){
             console.log( response.data.error );
         });
     }; //Closes self.searchGB
+
+    self.addToList = function( elem ){
+        console.log( elem );
+    }
+
+    self.createBR = function( elem ){
+        console.log( elem );
+    }
 });
