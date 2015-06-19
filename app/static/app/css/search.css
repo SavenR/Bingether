@@ -60,3 +60,29 @@ form {
     padding: 10px;
     text-align: justify;
 }
+.showImage {
+    /*width: 100%;*/
+}
+.SEBtns {
+    margin-top: 8px;
+}
+.showBtn {
+    width: 48%;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    color: #555;
+    font-weight: 500;
+    font-size: 12px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding;
+    background-clip: padding-box;
+}
+.showBtn:hover {
+    color: #730B0B;
+    background-image: linear-gradient(to bottom,#ddd,#bbb);
+}
+.br {
+    border-left: 1px dotted #777;
+
+}

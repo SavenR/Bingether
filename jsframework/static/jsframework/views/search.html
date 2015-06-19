@@ -11,7 +11,16 @@
 <h2 class="row searchStatement">{{ pc.searchStatement }}</h2>
 <div id="resultsWrapper">
     <div class="showResult row" ng-repeat="show in pc.shows">
-        <img class="showImage col-md-3" src="{{show.artwork_304x171}}">
+        <div class="SELeftSide col-md-3">
+            <img class="showImage img-responsive" src="{{show.artwork_304x171}}">
+            <div class="SEBtns">
+                <div class="showBtn pb">
+                    +PERSONAL BINGES
+                </div><div class="showBtn br">
+                    +BINGETHER REQUEST
+                </div>
+            </div>
+        </div>
         <div class="showDetails col-md-9">
             <span class="showTitle">{{show.title}}</span>
             <span class="showYear">({{show.year}})</span>
