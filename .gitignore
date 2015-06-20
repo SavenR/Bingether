@@ -61,4 +61,4 @@ local_settings*
 z_misc/*
 .DS_*
 *.pyc
-/migrations/*
+migrations/
