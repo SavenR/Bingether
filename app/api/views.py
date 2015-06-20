@@ -1,8 +1,13 @@
 from rest_framework import viewsets
-from jsframework.api.serializers import exampleSerializer
-from jsframework.models import modelName
+from app.api.serializers import pbS
+from app.models import personalBinge
 
-class ExampleViewSet(viewsets.ModelViewSet):
-    queryset = modelName.objects.all()
-    serializer_class = exampleSerializer
-    lookup_field = 'name'
+class PBUserVS(viewsets.ModelViewSet):
+    queryset = personalBinge.objects.all()
+    serializer_class = pbS
+    lookup_field = 'user'
+
+class PBShowVS(viewsets.ModelViewSet):
+    queryset = personalBinge.objects.all()
+    serializer_class = pbS
+    lookup_field = 'showID'
