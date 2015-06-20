@@ -1,10 +1,8 @@
 from rest_framework import serializers
-from jsframework.models import modelName
+from app.models import personalBinge
 
-
-class exampleSerializer(serializers.ModelSerializer):
+# Personal Binges Serializer
+class pbS(serializers.ModelSerializer):
     class Meta:
-        model = modelName
-        fields = ('name',)
-        # read_only_fields = ('date_joined',)
-        # write_only_fields = ('password',)
+        model = personalBinge
+        fields = ('user', 'showID', 'showName', 'showYear', 'showSummary', 'showImage', 'active')
