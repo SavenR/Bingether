@@ -6,3 +6,5 @@ class pbS(serializers.ModelSerializer):
     class Meta:
         model = personalBinge
         fields = ('user', 'showID', 'showName', 'showYear', 'showSummary', 'showImage', 'active')
+
+

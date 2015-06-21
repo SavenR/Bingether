@@ -12,4 +12,4 @@ class personalBinge(models.Model):
     active = models.BooleanField(default=True)
 
     def __unicode__(self):
-        return self.user + ' - ' + self.showName
+        return '{0} - {1}'.format(self.user, self.showName)

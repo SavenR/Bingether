@@ -17,11 +17,11 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
-from jsframework import urls as j_urls
+from app import urls as a_urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    # url(r'^api/', include(j_urls)),
+    url(r'^api/app/', include(a_urls)),
     url(r'^join/$', 'app.views.join', name='join'),
     url(r'^login/$', 'django.contrib.auth.views.login', name='login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/logged-out/'}, name='logout'),
