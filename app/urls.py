@@ -1,10 +1,10 @@
 from django.conf.urls import url, include
 from rest_framework import routers
-from .api.views import UsersPBs2
+from .api.views import UsersPBs2, PBViews
 
 
 router = routers.DefaultRouter()
-# router.register(r'pbu', PBUserVS, base_name='pbu')
+router.register(r'pbu', PBViews, base_name='pbu')
 
 urlpatterns = [
     url(r'^', include(router.urls)), # Include router urls into our urlpatterns
