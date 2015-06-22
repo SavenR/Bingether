@@ -1,8 +1,31 @@
-Binge List
+<h1>Personal Binge List</h1>
 
-Add a show to your Binge List
+<div id="resultsWrapper row">
 
-Coming Soon!
+    <div class="showResult col-md-3 col-sm-6 col-xs-7 col-xs-offset-3 col-sm-offset-0" ng-repeat="pb in pc.pbs">
+        <div class=" col-md-12">
+            <img class="showImage img-responsive" src="{{pb.showImage}}">
 
+        </div>
+        <div class="showDetails col-md-12">
+            <div class="showTitle">{{pb.showName}}</div>
+            <span class="showYear">({{pb.showYear}})</span>
+            <div class="showOverview">
+                {{pb.showSummary | limitTo:125}}...
+            </div>
+        </div>
+        <div class="SEBtns col-md-12">
+            <div class="showBtn br" ng-click="pc.createBR(show);">
+                +BINGETHER REQUEST
+            </div>
+        </div>
+        <div class="SEBtns col-md-12">
+            <div class="showBtn br" ng-click="pc.createBR(show);">
+                REMOVE
+            </div>
+        </div>
+    </div>
+
+</div>
 <!-- Page Specific Scripts -->
 <script type="text/javascript" rel="javascript" src=""></script>
