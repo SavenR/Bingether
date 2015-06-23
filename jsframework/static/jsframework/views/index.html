@@ -1,25 +1,25 @@
 
-Index Page
-<a href="/#/search">Search for a show</a>
-<div id="resultsWrapper">
-    <div class="showResult row" ng-repeat="pb in pc.pbs">
-        <div class="SELeftSide col-md-3">
-            <img class="showImage img-responsive" src="{{pc.tempShow}}">
-            <div class="SEBtns">
-                <div class="showBtn pb" ng-click="pc.addToList(show);">
+<h1>Popular Shows</h1>
+<p>Don't know what you want to watch yet? Check out one of these popular shows or start <a href="/#/search">searching</a>.</p>
+<br>
+
+<div id="resultsWrapper row">
+
+    <div class="showResult col-md-3 col-sm-6 col-xs-7 col-xs-offset-3 col-sm-offset-0" ng-repeat="show in pc.topShows">
+        <div class=" col-md-12">
+            <img class="showImage img-responsive" src="{{show.artwork_448x252}}">
+
+        </div>
+        <div class="showDetails col-md-12">
+            <div class="showTitle">{{show.title}}</div>
+        </div>
+            <div class="SEBtns col-md-12">
+                <div class="showBtn pb" ng-click="pc.addPBs(show);">
                     +PERSONAL BINGES
                 </div><div class="showBtn br" ng-click="pc.createBR(show);">
                     +BINGETHER REQUEST
                 </div>
             </div>
-        </div>
-        <div class="showDetails col-md-9">
-            <span class="showTitle">{{pb}}</span>
-            <span class="showYear">({{pb}})</span>
-            <div class="showOverview">
-                {{pb}}
-            </div>
-        </div>
 
     </div>
 

@@ -1,82 +1,49 @@
 app.controller('indexC', function($http){
 var self = this,
-        baseUrl = '/api/app/users/';
-    // debugging, deleteMe
+        popShowsUrl = 'https://api-public.guidebox.com/v1.43/us/rKz5kRcTCXufMqGHHupHnNBtX6XfTNgI/shows/all/0/100/all/all',
+        showDetailsUrl = 'https://api-public.guidebox.com/v1.43/us/rKz5kRcTCXufMqGHHupHnNBtX6XfTNgI/show/'
+        postUrl = 'http://127.0.0.1:8000/api/app/pbu/';
 
-    self.pbs = [1, 2, 3];
-    self.tempShow = 'http://www.gif.tv/tv.png'
+    // API Call for personal binges
+    self.getTopShows = function(){
+        $http.get( popShowsUrl )
+        .then( function( response ){
+            self.topShows = response.data.results;
+        },
+        // Error behavior
+        function( response ){
+            console.log( 'An error has occurred: ' );
+            console.log( response.status );
+            console.log( response.statusText );
+            console.log( response.data.error );
+        });
+    }; //Closes self.searchGB
 
-    // self.searchGB = function(){
-    //     // Blocks accidental blank/duplicate searches
-    //     if (!self.showTitle || self.showTitle === self.lastTitle){
-    //         return
-    //     };
+    // Calls API call
+    self.getTopShows()
+    self.addPBs = function( elem ){
+        $http.get( showDetailsUrl + elem.id )
+        .then( function( response ){
+            $http.post( postUrl, {
+                'user': globalUser,
+                'showID': elem.id,
+                'showName': elem.title,
+                'showYear': (parseInt(response.data.first_aired) || null),
+                'showSummary': response.data.overview,
+                'showImage': elem.artwork_304x171,
+                'active': true
+            } )
+            .then(function(){},function( response ){ console.log( response ); })
 
-    //     self.shows = [];
-    //     self.lastTitle = self.showTitle;
-    //     self.searchStatement = 'Searching...';
+        },
+        function( response ){
+            console.log( 'fail:' );
+            console.log( response );
+        });
 
-    //     // Cleaning title for GuideBox API
-    //     self.titleTE = self.showTitle.split(' ').join('%252520');
+    }
 
-    //     // Search GuideBox API using the cleaned title
-    //     $http.get( baseUrl + 'search/title/' + self.titleTE + '/fuzzy')
-    //     .then( function( response ){
-
-    //         // Iterating through found shows
-    //         response.data.results.map(function( item, place, input ){
-
-    //             // Accesses additional show information from GuideBox
-    //             $http.get( baseUrl + 'show/' + item.id )
-    //             .then(function( response ){
-
-    //                 // Checks if item is a television show
-    //                 if ( response.data.type === "television" ){
-
-    //                     // Adds television show to view
-    //                     self.shows.push(item);
-
-    //                     // Adds additional information to display
-    //                     var lastIndex = self.shows.length - 1;
-    //                     self.shows[lastIndex]['overview'] = response.data.overview;
-    //                     // (first_aired can === false... )
-    //                     self.shows[lastIndex]['year'] = (parseInt(response.data.first_aired) || null);
-
-    //                     // Sorts shows based on title length
-    //                     self.shows.sort(function(a,b){
-    //                         if (a.title.length < b.title.length) { return -1; }
-    //                         return 1;
-    //                     });
-
-    //                     // Generates search Statement
-    //                     self.searchStatement =
-    //                         (lastIndex+1) + ' Search Result' +
-    //                         ( (lastIndex+1) === 1 ? ' ' : 's ' )  +
-    //                         'for ' + self.showTitle + ':';
-    //                 };
-    //             });
-    //         });
-
-    //         // Displays 0 results message
-    //         if ( !self.shows[0] ) {
-    //             self.searchStatement = '0 Seach Results for ' + self.showTitle + '.';
-    //         }
-    //     },
-
-    //     // Error behavior
-    //     function( response ){
-    //         console.log( 'An error has occurred: ' );
-    //         console.log( response.status );
-    //         console.log( response.statusText );
-    //         console.log( response.data.error );
-    //     });
-    // }; //Closes self.searchGB
-
-    // self.addToList = function( elem ){
-    //     console.log( elem );
-    // }
-
-    // self.createBR = function( elem ){
-    //     console.log( elem );
-    // }
+    self.createBR = function( elem ){
+        console.log( elem );
+    }
 });

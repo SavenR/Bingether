@@ -1,55 +1,36 @@
-.searchTitle {
+h1 {
     font-weight: 600;
     font-size: 36px;
-}
-form {
-    width: 100%;
-}
-.searchWrapper {
-    width: 80%;
-    margin: 1% auto;
-}
-#searchBox {
-    height: 50px;
-    border-radius: 2em;
-    font-size: 200%;
-    line-height: 50px;
-    margin: 0 auto;
-    color: #999;
-    font-weight: 500;
-}
-#searchBox:focus {
-    outline: none;
-    color: #633;
-}
-#submitButton {
-    position: absolute;
-    left: -99999px;
-    width: 1px;
-    height: 1px;
-}
-.searchStatement {
-    font-size: 28px;
-    font-weight: 700;
-    color: #333333;
-    width: 82%;
-    margin: 30px auto 20px;
+    margin-left: -10px;
 }
 .showResult {
-    border-bottom: 2px dotted #777;
-    padding: 10px;
-    width: 80%;
-    /*display: block;*/
-    margin: 10px auto;
+    padding: 2px;
+    padding-bottom: 15px;
+    background-image: linear-gradient(to bottom,#ddd,#bbb);
+    margin-top: 12px;
+    /* Gives illusion of margins */
+    border: 6px solid transparent;
+    border-top: 27px solid transparent;
+    padding-top: 0px;
+
+    /* Gives out of the box look */
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding;
+    background-clip: padding-box;
 }
-.showResult:last-of-type {
-    border-bottom: none;
+.showImage {
+    position: relative;
+    top: -20px;
+    margin: 0 auto;
 }
 .showTitle {
     color: #5b3c3c;
     font-size: 20px;
     font-weight: 600;
-    margin-right: 5px;
+    height: 26px;
+    overflow: hidden;
+        position: relative;
+    top: -10px;
 }
 .showYear {
     color: #757070;
@@ -57,12 +38,34 @@ form {
     font-weight: 500;
 }
 .showOverview {
-    padding: 10px;
+    padding: 5px;
     text-align: justify;
+    line-height: 16px;
+    font-size: 15px;
+    height: 87px;
+    overflow: hidden;
 }
-.showImage {
-    /*width: 100%;*/
+.SEBtns {
+    margin-top: 5px;
 }
+.showBtn {
+    width: 80%;
+    text-align: center;
+    cursor: pointer;
+    color: #555;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 17px;
+    padding: 7px;
+    margin: 0 auto;
+    background-image: linear-gradient(to bottom,#ddd,#bbb);
+    color: #730B0B;
+}
+.showBtn:hover {
+    background-image: linear-gradient(to bottom,#bbb,#999);
+    color: #d9d9d9;
+    font-weight: 800;
+};
 .SEBtns {
     margin-top: 8px;
 }
