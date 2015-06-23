@@ -1,6 +1,10 @@
 app.controller('searchC', function($http, $q){
     var self = this,
-        baseUrl = 'https://api-public.guidebox.com/v1.43/us/rKz5kRcTCXufMqGHHupHnNBtX6XfTNgI/';
+        baseUrl = 'https://api-public.guidebox.com/v1.43/us/rKz5kRcTCXufMqGHHupHnNBtX6XfTNgI/',
+        // // //Post debugging
+        // postUrl = 'http://127.0.0.1:8000/api/app/users/',
+        // postUrl2 = 'http://127.0.0.1:8000/api/app/pbu/'
+        ;
     // debugging, deleteMe
     self.showTitle = "Robo";
 
@@ -74,7 +78,30 @@ app.controller('searchC', function($http, $q){
     }; //Closes self.searchGB
 
     self.addToList = function( elem ){
-        console.log( elem );
+        var pb = {
+            "showID": elem.id,
+            "showName": elem.title,
+            "showYear": elem.year,
+            "showSummary": elem.overview,
+            "showImage": elem.artwork_304x171,
+            "active": true
+            }
+            // // // DB POST debugging
+            //,
+        //     pb2 = {
+        //                 'user': 9,
+        //                 'showID': elem.id,
+        //                 'showName': elem.title,
+        //                 'showYear': elem.year,
+        //                 'showSummary': elem.overview,
+        //                 'showImage': elem.artwork_304x171,
+        //                 'active': true
+        //     }
+        ;
+        // $http.post( postUrl, pb2 )
+        // .then(function(response){console.log(response);},function(response){console.log(response);})
+        // // console.log( pb );
+        userPBs.push(pb);
     }
 
     self.createBR = function( elem ){
