@@ -1,0 +1,88 @@
+.searchTitle {
+    font-weight: 600;
+    font-size: 36px;
+}
+form {
+    width: 100%;
+}
+.searchWrapper {
+    width: 80%;
+    margin: 1% auto;
+}
+#searchBox {
+    height: 50px;
+    border-radius: 2em;
+    font-size: 200%;
+    line-height: 50px;
+    margin: 0 auto;
+    color: #999;
+    font-weight: 500;
+}
+#searchBox:focus {
+    outline: none;
+    color: #633;
+}
+#submitButton {
+    position: absolute;
+    left: -99999px;
+    width: 1px;
+    height: 1px;
+}
+.searchStatement {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333333;
+    width: 82%;
+    margin: 30px auto 20px;
+}
+.showResult {
+    border-bottom: 2px dotted #777;
+    padding: 10px;
+    width: 80%;
+    /*display: block;*/
+    margin: 10px auto;
+}
+.showResult:last-of-type {
+    border-bottom: none;
+}
+.showTitle {
+    color: #5b3c3c;
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 5px;
+}
+.showYear {
+    color: #757070;
+    font-size: 18px;
+    font-weight: 500;
+}
+.showOverview {
+    padding: 10px;
+    text-align: justify;
+}
+.showImage {
+    /*width: 100%;*/
+}
+.SEBtns {
+    margin-top: 8px;
+}
+.showBtn {
+    width: 48%;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    color: #555;
+    font-weight: 500;
+    font-size: 12px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding;
+    background-clip: padding-box;
+}
+.showBtn:hover {
+    color: #730B0B;
+    background-image: linear-gradient(to bottom,#ddd,#bbb);
+}
+.br {
+    border-left: 1px dotted #777;
+
+}

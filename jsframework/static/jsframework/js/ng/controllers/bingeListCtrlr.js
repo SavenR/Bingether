@@ -7,6 +7,16 @@ var self = this,
         $http.get( url )
         .then( function( response ){
             self.pbs = response.data;
+            for ( var i=0; i<userPBs.length; i++ ){
+                self.pbs.push( userPBs[i] )
+                console.log( self.pbs )
+            }
+            // console.log(userPBs)
+            // console.log(self.pbs)
+            // self.pbs += userPBs
+            // console.log(userPBs)
+            // console.log(self.pbs)
+            // self.pbs = userPBs;
         },
         // Error behavior
         function( response ){
@@ -18,5 +28,5 @@ var self = this,
     }; //Closes self.searchGB
 
     // Calls API call
-    self.searchGB()
+    // self.searchGB()
 });

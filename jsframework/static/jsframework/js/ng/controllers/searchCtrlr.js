@@ -2,8 +2,8 @@ app.controller('searchC', function($http, $q){
     var self = this,
         baseUrl = 'https://api-public.guidebox.com/v1.43/us/rKz5kRcTCXufMqGHHupHnNBtX6XfTNgI/',
         // // //Post debugging
-        // postUrl = 'http://127.0.0.1:8000/api/app/users/',
-        // postUrl2 = 'http://127.0.0.1:8000/api/app/pbu/'
+        postUrl = 'http://127.0.0.1:8000/api/app/users/'
+        postUrl2 = 'http://127.0.0.1:8000/api/app/pbu/'
         ;
     // debugging, deleteMe
     self.showTitle = "Robo";
@@ -78,6 +78,7 @@ app.controller('searchC', function($http, $q){
     }; //Closes self.searchGB
 
     self.addToList = function( elem ){
+
         var pb = {
             "showID": elem.id,
             "showName": elem.title,
@@ -88,23 +89,62 @@ app.controller('searchC', function($http, $q){
             }
             // // // DB POST debugging
             //,
-        //     pb2 = {
-        //                 'user': 9,
-        //                 'showID': elem.id,
-        //                 'showName': elem.title,
-        //                 'showYear': elem.year,
-        //                 'showSummary': elem.overview,
-        //                 'showImage': elem.artwork_304x171,
-        //                 'active': true
-        //     }
+            pb2 = {
+                        'user': 9,
+                        'showID': elem.id,
+                        'showName': elem.title,
+                        'showYear': elem.year,
+                        'showSummary': elem.overview,
+                        'showImage': elem.artwork_304x171,
+                        'active': true
+            }
         ;
+        jQuery.ajax({
+            method: 'POST',
+            url: postUrl2,
+            data: pb2
+        })
+        .done(function(){
+            console.log('done');
+        });
         // $http.post( postUrl, pb2 )
         // .then(function(response){console.log(response);},function(response){console.log(response);})
-        // // console.log( pb );
-        userPBs.push(pb);
+        // console.log( pb );
+        // userPBs.push(pb);
     }
 
     self.createBR = function( elem ){
         console.log( elem );
     }
 });
+
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
+
+
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+jQuery.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+console.log(csrftoken)

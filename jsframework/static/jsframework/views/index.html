@@ -1,6 +1,28 @@
 
 Index Page
 <a href="/#/search">Search for a show</a>
+<div id="resultsWrapper">
+    <div class="showResult row" ng-repeat="pb in pc.pbs">
+        <div class="SELeftSide col-md-3">
+            <img class="showImage img-responsive" src="{{pc.tempShow}}">
+            <div class="SEBtns">
+                <div class="showBtn pb" ng-click="pc.addToList(show);">
+                    +PERSONAL BINGES
+                </div><div class="showBtn br" ng-click="pc.createBR(show);">
+                    +BINGETHER REQUEST
+                </div>
+            </div>
+        </div>
+        <div class="showDetails col-md-9">
+            <span class="showTitle">{{pb}}</span>
+            <span class="showYear">({{pb}})</span>
+            <div class="showOverview">
+                {{pb}}
+            </div>
+        </div>
 
+    </div>
+
+</div>
 <!-- Page Specific Scripts -->
 <script type="text/javascript" rel="javascript" src=""></script>
