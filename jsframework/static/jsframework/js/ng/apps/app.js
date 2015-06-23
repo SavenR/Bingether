@@ -1,7 +1,11 @@
 
+
 var app = angular.module( 'app', [ 'ngRoute' ] );
 
-app.config( [ '$routeProvider', function( $routeProvider ){
+app.config( [ '$routeProvider', '$httpProvider', function( $routeProvider, $httpProvider ){
+    $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+
     $routeProvider
     .when( '/search', {
         templateUrl: '/static/jsframework/views/search.html',
