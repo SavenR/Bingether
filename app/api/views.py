@@ -1,10 +1,13 @@
 from rest_framework import viewsets
 from app.api.serializers import pbS
 from app.api.serializers import btS
+from app.api.serializers import cmtsS
 from app.models import personalBinge
 from app.models import Bingether
+from app.models import Comment
 from rest_framework import generics
 
+# PERSONAL BINGE LIST VIEWS
 class PBViews(viewsets.ModelViewSet):
     queryset = personalBinge.objects.all()
     serializer_class = pbS
@@ -16,6 +19,8 @@ class UsersPBs2 ( generics.ListAPIView ):
     def get_queryset(self):
         cUser = self.request.user
         return personalBinge.objects.filter( user = cUser)
+
+# BINGETHER VIEWS
 
 class allActiveBingethers ( generics.ListAPIView ):
     serializer_class=btS
@@ -40,3 +45,14 @@ class bingetherViews(viewsets.ModelViewSet):
     queryset = Bingether.objects.filter( active = True )
     serializer_class = btS
     lookup_field = 'id'
+
+# COMMENT VIEWS
+class commentsByPost( generics.ListAPIView ):
+
+    serializer_class=cmtsS
+
+    def get_queryset(self):
+        # Grab Bingether ID from URL
+        BingetherID = self.kwargs['Bingether']
+        return Comment.objects.filter( BID = BingetherID )
+

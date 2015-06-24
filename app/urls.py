@@ -1,7 +1,8 @@
 from django.conf.urls import url, include
 from rest_framework import routers
 from .api.views import UsersPBs2, PBViews
-from .api.views import allActiveBingethers, usersActiveBingethers, bingetherViews
+from .api.views import allActiveBingethers, usersActiveBingethers
+from .api.views import bingetherViews, commentsByPost
 
 
 router = routers.DefaultRouter()
@@ -14,4 +15,5 @@ urlpatterns = [
     url(r'^users/', UsersPBs2.as_view(), name='userList'),
     url(r'^bingethers/', allActiveBingethers.as_view(), name='activeBRs'),
     url(r'^usrbrs/', usersActiveBingethers.as_view(), name='userActiveBRs'),
+    url(r'^comments/(?P<Bingether>.+)/$', commentsByPost.as_view(), name='commentsByPost'),
 ]
