@@ -34,14 +34,47 @@ h1 {
     color: #757070;
     font-size: 18px;
     font-weight: 500;
+    margin-left: 3px;
 }
-.showOverview {
-    padding: 5px;
+.bodyDiv {
     text-align: justify;
     line-height: 16px;
     font-size: 15px;
-    height: 87px;
-    overflow: hidden;
+    padding: 8px 16px 8px;
+    background-color: #ddd;
+
+}
+.bodyDiv:first-of-type {
+    border-radius: 10px 10px 0px 0px;
+    margin-top: 20px;
+    padding-top: 16px;
+    font-weight: 500;
+}
+.bodyDiv:last-of-type {
+    border-radius: 0px 0px 10px 10px;
+    margin-bottom: 20px;
+}
+.signature, .location, .dtPosted {
+    padding-left: 32px;
+    padding-bottom: 0px;
+}
+.location, .dtPosted {
+    padding-top: 2px;
+    padding-left: 38px;
+    font-weight: 300;
+}
+.dtPosted {
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #bbb;
+}
+.comment {
+    border-bottom: 1px dashed #bbb;
+}
+.bodyDiv:last-of-type {
+    border-radius: 0px 0px 10px 10px;
+    margin-bottom: 20px;
+    border-bottom: none;
+    padding-bottom: 16px;
 }
 .SEBtns {
     margin-top: 5px;

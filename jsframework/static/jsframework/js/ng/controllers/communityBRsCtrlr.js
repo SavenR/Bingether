@@ -7,6 +7,7 @@ var self = this,
         $http.get( url )
         .then( function( response ){
             self.pbs = response.data;
+            response.data.forEach(function(){});
         },
         // Error behavior
         function( response ){
