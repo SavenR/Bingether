@@ -6,7 +6,7 @@ app.controller('searchC', function($http, $q){
         postUrl = 'http://127.0.0.1:8000/api/app/pbu/'
         ;
     // debugging, deleteMe
-    self.showTitle = "Robo";
+    self.showTitle = "";
 
     self.lastTitle = "";
     self.shows = [];
@@ -79,26 +79,16 @@ app.controller('searchC', function($http, $q){
 
     self.addToList = function( elem ){
         var pb = {
-            "showID": elem.id,
-            "showName": elem.title,
-            "showYear": elem.year,
-            "showSummary": elem.overview,
-            "showImage": elem.artwork_304x171,
-            "active": true
-            }
-            // // // DB POST debugging
-            ,
-            pb2 = {
-                        'user': globalUser,
-                        'showID': elem.id,
-                        'showName': elem.title,
-                        'showYear': elem.year,
-                        'showSummary': elem.overview,
-                        'showImage': elem.artwork_304x171,
-                        'active': true
+                'user': globalUser,
+                'showID': elem.id,
+                'showName': elem.title,
+                'showYear': elem.year,
+                'showSummary': elem.overview,
+                'showImage': elem.artwork_304x171,
+                'active': true
             }
         ;
-        $http.post( postUrl, pb2 )
+        $http.post( postUrl, pb )
         .then(function(response){console.log(response);},function(response){console.log(response);})
         // // console.log( pb );
         // userPBs.push(pb);
