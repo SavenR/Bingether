@@ -21,6 +21,14 @@ class allActiveBingethers ( generics.ListAPIView ):
     serializer_class=btS
 
     def get_queryset(self):
-        return Bingether.objects.filter( active = True )
+        #Limits to the most recent 200 active Bingethers
+        results = Bingether.objects.filter( active = True )
+        rNumb = len(results)
+        if rNumb > 200 :
+            return results[rNumb-200:]
+
+        return results
+
+
 
 
