@@ -23,7 +23,8 @@ class btS(serializers.ModelSerializer):
             'showImage',
             'active',
             'dateCreated',
-            'location',
+            'city',
+            'state',
             'notes')
 
 # Comments Serializer
