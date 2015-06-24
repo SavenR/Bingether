@@ -36,4 +36,7 @@ class usersActiveBingethers ( generics.ListAPIView ):
         cUser = self.request.user
         return Bingether.objects.filter( cID = cUser ).filter( active = True )
 
-
+class bingetherViews(viewsets.ModelViewSet):
+    queryset = Bingether.objects.filter( active = True )
+    serializer_class = btS
+    lookup_field = 'id'
