@@ -3,7 +3,6 @@ from django.db import models
 
 #StateList for location functionality
 stateList = (
-    ('TA', 'testing'),
     ('AL', 'Alabama'),
     ('AK', 'Alaska'),
     ('AZ', 'Arizona'),
