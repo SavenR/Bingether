@@ -1,27 +1,35 @@
-<h1>Outstanding Bingethers</h1>
+<h1>My Bingethers</h1>
 
-<p>All, Requests, Responses
-    <br>
-    <br><i>Coming Soon!</i>
-</p>
+
 <div id="resultsWrapper">
 <div id="resultsWrapper row">
 
-    <div class="showResult col-md-3 col-sm-6 col-xs-7 col-xs-offset-3 col-sm-offset-0" ng-repeat="pb in pc.pbs">
+    <div class="showResult col-md-3 col-sm-6 col-xs-7 col-xs-offset-3 col-sm-offset-0" ng-repeat="br in pc.pbs">
         <div class=" col-md-12">
-            <img class="showImage img-responsive" src="{{pb.showImage}}">
+            <img class="showImage img-responsive" src="{{br.showImage}}">
 
         </div>
         <div class="showDetails col-md-12">
-            <div class="showTitle">{{pb.showName}}</div>
-            <span class="showYear">({{pb.showYear}})</span>
+            <div class="showTitle">{{br.showName}}</div>
+            <span class="showYear">({{br.showYear}})</span>
             <div class="showOverview">
-                {{pb.showSummary | limitTo:125}}...
+                {{br.notes}}
+            </div>
+            <div class="location">
+                {{br.city}}, {{br.state}}
+            </div>
+            <div class="posted">
+                {{br.dateCreated}}
+            </div>
+            <div class="signature">
+                -{{br.cUName}}
+            </div>
+            <div class="comment">
             </div>
         </div>
         <div class="SEBtns col-md-12">
             <div class="showBtn br" ng-click="pc.createBR(show);">
-                +BINGETHER REQUEST
+                +COMMENT
             </div>
         </div>
         <div class="SEBtns col-md-12">
