@@ -65,3 +65,7 @@ class commentsByUser( generics.ListAPIView ):
         currentUser = self.request.user
         return Comment.objects.filter( cID = currentUser )
 
+class comViews(viewsets.ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = cmtsS
+    lookup_field = 'id'

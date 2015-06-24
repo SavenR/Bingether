@@ -4,11 +4,13 @@ from .api.views import UsersPBs2, PBViews
 from .api.views import allActiveBingethers, usersActiveBingethers
 from .api.views import bingetherViews, commentsByPost
 from .api.views import commentsByUser
+from .api.views import comViews
 
 
 router = routers.DefaultRouter()
 router.register(r'pbu', PBViews, base_name='pbu')
 router.register(r'brs', bingetherViews, base_name='brs')
+router.register(r'cmts', comViews, base_name='cmts')
 
 urlpatterns = [
     url(r'^', include(router.urls)), # Include router urls into our urlpatterns
