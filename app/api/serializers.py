@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from app.models import personalBinge
 from app.models import Bingether
+from app.models import Comment
 
 # Personal Binges Serializer
 class pbS(serializers.ModelSerializer):
@@ -25,4 +26,8 @@ class btS(serializers.ModelSerializer):
             'location',
             'notes')
 
+# Comments Serializer
+class cmtsS(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
 
