@@ -56,3 +56,12 @@ class commentsByPost( generics.ListAPIView ):
         BingetherID = self.kwargs['Bingether']
         return Comment.objects.filter( BID = BingetherID )
 
+class commentsByUser( generics.ListAPIView ):
+
+    serializer_class=cmtsS
+
+    def get_queryset(self):
+        # Identify current user
+        currentUser = self.request.user
+        return Comment.objects.filter( cID = currentUser )
+

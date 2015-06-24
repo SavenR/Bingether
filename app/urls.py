@@ -3,6 +3,7 @@ from rest_framework import routers
 from .api.views import UsersPBs2, PBViews
 from .api.views import allActiveBingethers, usersActiveBingethers
 from .api.views import bingetherViews, commentsByPost
+from .api.views import commentsByUser
 
 
 router = routers.DefaultRouter()
@@ -16,4 +17,5 @@ urlpatterns = [
     url(r'^bingethers/', allActiveBingethers.as_view(), name='activeBRs'),
     url(r'^usrbrs/', usersActiveBingethers.as_view(), name='userActiveBRs'),
     url(r'^comments/(?P<Bingether>.+)/$', commentsByPost.as_view(), name='commentsByPost'),
+    url(r'^ucomments/', commentsByUser.as_view(), name='usersComments'),
 ]
