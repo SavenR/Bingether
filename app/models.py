@@ -13,3 +13,20 @@ class personalBinge(models.Model):
 
     def __unicode__(self):
         return '{0} - {1}'.format(self.user, self.showName)
+
+class Bingether(models.Model):
+    cID = models.ForeignKey(User)
+    cUName = models.CharField(max_length=255)
+    showID = models.PositiveIntegerField()
+    showName = models.CharField(max_length=255)
+    showYear = models.PositiveSmallIntegerField()
+    showSummary = models.TextField(blank=True)
+    showImage = models.CharField(max_length=255)
+    active = models.BooleanField(default=True)
+    dateCreated = models.DateField(auto_now_add=True)
+    location = models.CharField(max_length=255)
+    notes = models.TextField(blank=True)
+
+    def __unicode__(self):
+        return '{0}: {1} on {2}'.format(self.cUName, self.showName, self.dateCreated)
+
