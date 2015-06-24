@@ -39,7 +39,6 @@ form {
     border-bottom: 2px dotted #777;
     padding: 10px;
     width: 80%;
-    /*display: block;*/
     margin: 10px auto;
 }
 .showResult:last-of-type {
@@ -60,11 +59,8 @@ form {
     padding: 10px;
     text-align: justify;
 }
-.showImage {
-    /*width: 100%;*/
-}
 .SEBtns {
-    margin-top: 8px;
+    margin: 8px auto 0px;
 }
 .showBtn {
     width: 48%;
@@ -84,5 +80,4 @@ form {
 }
 .br {
     border-left: 1px dotted #777;
-
 }

@@ -3,7 +3,7 @@
 </div>
 <form class="row" ng-submit="pc.searchGB()">
     <div class="searchWrapper">
-        <input type="text" id="searchBox" class="col-md-12" tabindex="1" name="searchBox" ng-model="pc.showTitle">
+        <input type="text" id="searchBox" class="col-xs-12 col-md-12" tabindex="1" name="searchBox" ng-model="pc.showTitle">
     </div>
     <input type="submit" id="submitButton" tabindex="2">
 </form>
@@ -11,8 +11,8 @@
 <h2 class="row searchStatement">{{ pc.searchStatement }}</h2>
 <div id="resultsWrapper">
     <div class="showResult row" ng-repeat="show in pc.shows">
-        <div class="SELeftSide col-md-3">
-            <img class="showImage img-responsive" src="{{show.artwork_304x171}}">
+        <div class="SELeftSide col-sm-12 col-md-3">
+            <img class="showImage img-responsive col-xs-12" src="{{show.artwork_304x171}}">
             <div class="SEBtns">
                 <div class="showBtn pb" ng-click="pc.addToList(show);">
                     +PERSONAL BINGES
