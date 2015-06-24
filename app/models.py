@@ -30,3 +30,15 @@ class Bingether(models.Model):
     def __unicode__(self):
         return '{0}: {1} on {2}'.format(self.cUName, self.showName, self.dateCreated)
 
+class Comment(models.Model):
+    cID = models.ForeignKey(User)
+    cUName = models.CharField(max_length=255)
+    BID = models.ForeignKey(Bingether)
+    active = models.BooleanField(default=True)
+    dateTimeCreated = models.DateTimeField(auto_now_add=True)
+    comment = models.TextField(blank=True)
+
+    def __unicode__(self):
+        if len(self.comment)>10:
+            return '{0} - {1}...'.format(self.cUName, self.comment[:10])
+        return '{0} - {1}'.format(self.cUName, self.comment)
