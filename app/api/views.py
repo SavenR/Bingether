@@ -29,6 +29,11 @@ class allActiveBingethers ( generics.ListAPIView ):
 
         return results
 
+class usersActiveBingethers ( generics.ListAPIView ):
+    serializer_class=btS
 
+    def get_queryset(self):
+        cUser = self.request.user
+        return Bingether.objects.filter( cID = cUser ).filter( active = True )
 
 
