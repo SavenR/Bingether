@@ -1,15 +1,14 @@
 app.controller('communityBRsC', function($http, $window){
-var self = this,
-    allBRsURL = '/api/app/bingethers/',
-    commentByPostBaseURL = '/api/app/comments/';
-    self.width = $window.innerWidth;
+    var self = this,
+        allBRsURL = '/api/app/bingethers/',
+        commentByPostBaseURL = '/api/app/comments/';
     self.brs = [];
 
     // API call for all active Bingers
     self.getCommunityBRs = function(){
         $http.get( allBRsURL )
         .then( function( response ){
-            self.brs = self.brs.concat(response.data);
+            self.brs = response.data;
             response.data.forEach(function( e, i ){
                 $http.get( commentByPostBaseURL + e.id + '/').then(
                     function( response ){
