@@ -14,6 +14,7 @@ class btS(serializers.ModelSerializer):
     class Meta:
         model = Bingether
         fields = (
+            'id',
             'cID',
             'cUName',
             'showID',
