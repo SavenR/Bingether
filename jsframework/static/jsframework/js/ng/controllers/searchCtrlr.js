@@ -43,9 +43,9 @@ app.controller('searchC', function($http, $q){
 
                         // Adds additional information to display
                         var lastIndex = self.shows.length - 1;
-                        self.shows[lastIndex]['overview'] = response.data.overview;
+                        self.shows[lastIndex]['showSummary'] = response.data.overview;
                         // (first_aired can === false... )
-                        self.shows[lastIndex]['year'] = (parseInt(response.data.first_aired) || null);
+                        self.shows[lastIndex]['showYear'] = (parseInt(response.data.first_aired) || null);
 
                         // Sorts shows based on title length
                         self.shows.sort(function(a,b){
@@ -82,8 +82,8 @@ app.controller('searchC', function($http, $q){
                 'user': globalUser,
                 'showID': elem.id,
                 'showName': elem.title,
-                'showYear': elem.year,
-                'showSummary': elem.overview,
+                'showYear': elem.showYear,
+                'showSummary': elem.showSummary,
                 'showImage': elem.artwork_304x171,
                 'active': true
             }
@@ -92,7 +92,51 @@ app.controller('searchC', function($http, $q){
         .then(function(response){console.log(response);},function(response){console.log(response);})
     }
 
-    self.createBR = function( elem ){
-        console.log( elem );
+    // +Bingether Form
+    var postBingetherURL = '/api/app/brs/'
+
+    self.BFormEntry = false;
+
+    self.showBForm = function(BR){
+        // console.log('yo');
+        self.BShow = BR;
+        self.BFormEntry = true;
+        self.BFormTransition = true;
+        // console.log(BR);
+    };
+
+    self.hideBForm = function(){
+        self.BFormEntry = false;
     }
+
+    self.addBingether = function(){
+        // Prevents empty comments
+        if ( !self.bNote || !self.bCity || !self.bState ){
+            return
+        };
+
+        var bingether = {
+                'cID': globalUser,
+                'cUName': userName,
+                'showID': self.BShow.id,
+                'showName': self.BShow.title,
+                'showYear': self.BShow.showYear,
+                'showSummary': self.BShow.showSummary,
+                'showImage': self.BShow.artwork_304x171,
+                'active': true,
+                'city': self.bCity,
+                'state': self.bState,
+                'notes': self.bNote
+        };
+        $http.post( postBingetherURL, bingether )
+        .then(function(response){console.log(response);},function(response){console.log(response);});
+        console.log(bingether);
+
+        //Resets the form
+        self.hideBForm();
+        self.bNote = "";
+        self.bCity = "";
+        self.bState = "CA";
+    }
+
 });
