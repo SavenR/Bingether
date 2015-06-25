@@ -1,8 +1,52 @@
 <h1>Community Bingether Requests</h1>
+<div class="resultsWrapper col-md-3 col-sm-6 col-xs-7 col-xs-offset-3 col-sm-offset-0">
+    <div class="showResult col-xs-12 col-lg-12" ng-repeat="br in pc.brs | inputMod: 0">
+        <div class="col-md-12">
+            <img class="showImage img-responsive" src="{{br.showImage}}">
 
-<div id="resultsWrapper row">
+        </div>
+        <div class="showDetails col-md-12">
+            <div class="showTitle">{{br.showName}}</div>
+            <span class="showYear">({{br.showYear}})</span>
+            <div class="bodyContainer">
+                <div class="bodyDiv creatorNotes">
+                    {{br.notes}}
+                </div>
+                <div class="signature bodyDiv">
+                    -{{br.cUName}}
+                </div>
+                <div class="location bodyDiv">
+                    {{br.city}}, {{br.state}}
+                </div>
+                <div class="dtPosted bodyDiv">
+                    {{br.dateCreated}}
+                </div>
 
-    <div class="showResult col-md-3 col-sm-6 col-xs-7 col-xs-offset-3 col-sm-offset-0" ng-repeat="br in pc.pbs">
+                <div class="comment bodyDiv" ng-repeat="comment in br.comments">
+
+                    <div class="commentText">{{comment.comment}}</div>
+                    <div class="signature ">
+                        -{{comment.cUName}}
+                    </div>
+                    <div class="dtPosted comment">
+                        {{comment.dateTimeCreated | date : 'shortDate' : '-0800' }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="SEBtns col-md-12">
+            <div class="showBtn br" ng-click="pc.createBR(show);">
+                +COMMENT
+            </div>
+        </div>
+        <div class="SEBtns col-md-12">
+            <div class="showBtn br" ng-click="pc.createBR(show);">
+                +PERSONAL BINGES
+            </div>
+        </div>
+    </div></div><div class="resultsWrapper col-md-3 col-sm-6 col-xs-7 col-xs-offset-3 col-sm-offset-0">
+    <div class="showResult col-xs-12 col-lg-12" ng-repeat="br in pc.brs | inputMod: 1">
         <div class=" col-md-12">
             <img class="showImage img-responsive" src="{{br.showImage}}">
 
@@ -25,8 +69,14 @@
                 </div>
 
                 <div class="comment bodyDiv" ng-repeat="comment in br.comments">
-                    <p><span class="commentor">{{comment.cUName}}</span> <span class="commentDate">{{comment.dateTimeCreated}}</span></p>
+
                     <div class="commentText">{{comment.comment}}</div>
+                    <div class="signature ">
+                        -{{comment.cUName}}
+                    </div>
+                    <div class="dtPosted comment">
+                        {{comment.dateTimeCreated | date : 'shortDate' : '-0800' }}
+                    </div>
                 </div>
             </div>
 
@@ -41,8 +91,98 @@
                 +PERSONAL BINGES
             </div>
         </div>
-    </div>
+    </div></div><div class="resultsWrapper col-md-3 col-sm-6 col-xs-7 col-xs-offset-3 col-sm-offset-0">
+    <div class="showResult col-xs-12 col-lg-12" ng-repeat="br in pc.brs | inputMod: 2">
+        <div class=" col-md-12">
+            <img class="showImage img-responsive" src="{{br.showImage}}">
 
+        </div>
+        <div class="showDetails col-md-12">
+            <div class="showTitle">{{br.showName}}</div>
+            <span class="showYear">({{br.showYear}})</span>
+            <div class="bodyContainer">
+                <div class="bodyDiv creatorNotes">
+                    {{br.notes}}
+                </div>
+                <div class="signature bodyDiv">
+                    -{{br.cUName}}
+                </div>
+                <div class="location bodyDiv">
+                    {{br.city}}, {{br.state}}
+                </div>
+                <div class="dtPosted bodyDiv">
+                    {{br.dateCreated}}
+                </div>
+
+                <div class="comment bodyDiv" ng-repeat="comment in br.comments">
+
+                    <div class="commentText">{{comment.comment}}</div>
+                    <div class="signature ">
+                        -{{comment.cUName}}
+                    </div>
+                    <div class="dtPosted comment">
+                        {{comment.dateTimeCreated | date : 'shortDate' : '-0800' }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="SEBtns col-md-12">
+            <div class="showBtn br" ng-click="pc.createBR(show);">
+                +COMMENT
+            </div>
+        </div>
+        <div class="SEBtns col-md-12">
+            <div class="showBtn br" ng-click="pc.createBR(show);">
+                +PERSONAL BINGES
+            </div>
+        </div>
+    </div></div><div class="resultsWrapper col-md-3 col-sm-6 col-xs-7 col-xs-offset-3 col-sm-offset-0">
+    <div class="showResult col-xs-12 col-lg-12" ng-repeat="br in pc.brs | inputMod: 3">
+        <div class=" col-md-12">
+            <img class="showImage img-responsive" src="{{br.showImage}}">
+
+        </div>
+        <div class="showDetails col-md-12">
+            <div class="showTitle">{{br.showName}}</div>
+            <span class="showYear">({{br.showYear}})</span>
+            <div class="bodyContainer">
+                <div class="bodyDiv creatorNotes">
+                    {{br.notes}}
+                </div>
+                <div class="signature bodyDiv">
+                    -{{br.cUName}}
+                </div>
+                <div class="location bodyDiv">
+                    {{br.city}}, {{br.state}}
+                </div>
+                <div class="dtPosted bodyDiv">
+                    {{br.dateCreated}}
+                </div>
+
+                <div class="comment bodyDiv" ng-repeat="comment in br.comments">
+
+                    <div class="commentText">{{comment.comment}}</div>
+                    <div class="signature ">
+                        -{{comment.cUName}}
+                    </div>
+                    <div class="dtPosted comment">
+                        {{comment.dateTimeCreated | date : 'shortDate' : '-0800' }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="SEBtns col-md-12">
+            <div class="showBtn br" ng-click="pc.createBR(show);">
+                +COMMENT
+            </div>
+        </div>
+        <div class="SEBtns col-md-12">
+            <div class="showBtn br" ng-click="pc.createBR(show);">
+                +PERSONAL BINGES
+            </div>
+        </div>
+    </div>
 </div>
 <!-- Page Specific Scripts -->
 <script type="text/javascript" rel="javascript" src=""></script>
