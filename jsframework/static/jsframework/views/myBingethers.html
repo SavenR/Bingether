@@ -36,7 +36,7 @@
 
         </div>
         <div class="SEBtns col-md-12">
-            <div class="showBtn br" ng-click="pc.createBR(show);">
+            <div class="showBtn br" ng-click="pc.showCommentForm(br)">
                 +COMMENT
             </div>
         </div>
@@ -82,7 +82,7 @@
 
         </div>
         <div class="SEBtns col-md-12">
-            <div class="showBtn br" ng-click="pc.createBR(show);">
+            <div class="showBtn br" ng-click="pc.showCommentForm(br)">
                 +COMMENT
             </div>
         </div>
@@ -128,7 +128,7 @@
 
         </div>
         <div class="SEBtns col-md-12">
-            <div class="showBtn br" ng-click="pc.createBR(show);">
+            <div class="showBtn br" ng-click="pc.showCommentForm(br)">
                 +COMMENT
             </div>
         </div>
@@ -173,28 +173,28 @@
             </div>
         </div>
         <div class="SEBtns col-md-12">
-            <div class="showBtn br" ng-click="pc.createBR(show);">
+            <div class="showBtn br" ng-click="pc.showCommentForm(br)">
                 +COMMENT
             </div>
         </div>
         <div class="SEBtns col-md-12">
-            <div class="showBtn br" ng-click="pc.createBR(show);">
+            <div class="showBtn br" ng-click="">
                 REMOVE
             </div>
         </div>
     </div>
 </div>
-<!-- Page Specific Scripts -->
-<script type="text/javascript" rel="javascript" src=""></script>
 
-<div ng-click="pc.showModal()">Open Modal</div>
 
-<div id="openModal" class=" modalDialog row" ng-class="{transition: pc.formTransition, show: pc.formEntry}">
+<!-- Comments Model -->
+<div id="openModal" class=" modalDialog row" ng-class="{transition: pc.commentFormTransition, show: pc.commentFormEntry}">
     <div class="modalHolder col-md-12">
-        <a title="Close" class="close" ng-click="pc.hideModal()">X</a>
-        <form class="col-md-12">
-            <h1 class="col-md-12">Create a new Bingether Request</h1>
-
+        <a title="Close" class="close" ng-click="pc.hideCommentForm()">X</a>
+        <form class="col-md-12" ng-submit="pc.addComment();">
+            <h1 class="col-md-12">Add a Comment</h1>
+            <!-- <label for="newComment">Comment:</label> -->
+            <textarea class="textArea"  ng-model="pc.newComment" name="newComment"></textarea>
+            <input class="subButton showBtn" type="submit" value="+COMMENT">
         </form>
 
     </div>

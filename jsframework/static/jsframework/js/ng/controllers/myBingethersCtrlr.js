@@ -24,14 +24,47 @@ app.controller('myBingethersC', function($http){
             console.log( response.data.error );
         });
     };
-    self.getUsrsActBRs()
-    self.formEntry = false;
 
-    self.showModal = function(){
-        self.formEntry = true;
-        self.formTransition = true;
+    self.getUsrsActBRs();
+
+    //debugging
+    self.yo = function(a){console.log( a + ' yo' );};
+
+    // +COMMENT Form
+    var postCommentURL = '/api/app/cmts/'
+
+    self.commentFormEntry = false;
+
+    self.showCommentForm = function(BR){
+        self.commentedShow = BR;
+        self.commentFormEntry = true;
+        self.commentFormTransition = true;
     };
-    self.hideModal = function(){
-        self.formEntry = false;
+
+    self.hideCommentForm = function(){
+        self.commentFormEntry = false;
     }
+
+    self.addComment = function(){
+        // Prevents empty comments
+        if ( !self.newComment ){
+            return
+        };
+
+        var comment = {
+                'cID': globalUser,
+                'cUName': userName,
+                'BID': self.commentedShow.id,
+                'active': true,
+                'comment': self.newComment
+        };
+        $http.post( postCommentURL, comment )
+        .then(function(response){console.log(response);},function(response){console.log(response);});
+
+        //Refreshes the page and resets the form
+        self.getUsrsActBRs();
+        self.hideCommentForm();
+        self.newComment = "";
+    }
+
 });

@@ -25,6 +25,62 @@ app.controller('communityBRsC', function($http, $window){
         });
     };
     self.getCommunityBRs();
+
+    // +COMMENT Form
+    var postCommentURL = '/api/app/cmts/'
+
+    self.commentFormEntry = false;
+
+    self.showCommentForm = function(BR){
+        console.log('yo');
+        self.commentedShow = BR;
+        self.commentFormEntry = true;
+        self.commentFormTransition = true;
+    };
+
+    self.hideCommentForm = function(){
+        self.commentFormEntry = false;
+    }
+
+    self.addComment = function(){
+        // Prevents empty comments
+        if ( !self.newComment ){
+            return
+        };
+
+        var comment = {
+                'cID': globalUser,
+                'cUName': userName,
+                'BID': self.commentedShow.id,
+                'active': true,
+                'comment': self.newComment
+        };
+        $http.post( postCommentURL, comment )
+        .then(function(response){console.log(response);},function(response){console.log(response);});
+
+        //Refreshes the page and resets the form
+        self.getCommunityBRs();
+        self.hideCommentForm();
+        self.newComment = "";
+    }
+
+    // +PERSONAL BINGES
+    var postPBURL = '/api/app/pbu/';
+
+    self.addToList = function( elem ){
+        var pb = {
+                'user': globalUser,
+                'showID': elem.showID,
+                'showName': elem.showName,
+                'showYear': elem.showYear,
+                'showSummary': elem.showSummary,
+                'showImage': elem.showImage,
+                'active': true
+            };
+
+        $http.post( postPBURL, pb )
+        .then(function(response){console.log(response);},function(response){console.log(response);})
+    }
 });
 
 // Filter for getting a subset of a selection

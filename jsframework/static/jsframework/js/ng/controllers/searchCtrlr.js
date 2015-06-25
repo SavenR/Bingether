@@ -90,8 +90,6 @@ app.controller('searchC', function($http, $q){
         ;
         $http.post( postUrl, pb )
         .then(function(response){console.log(response);},function(response){console.log(response);})
-        // // console.log( pb );
-        // userPBs.push(pb);
     }
 
     self.createBR = function( elem ){
