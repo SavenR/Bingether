@@ -1,13 +1,20 @@
 app.controller('myBingethersC', function($http){
-var self = this,
-        url = '/api/app/usrbrs/';
+    var self = this,
+        personalBRsurl = '/api/app/usrbrs/',
+        commentByPostBaseURL = '/api/app/comments/';
+    self.brs = [];
 
     // API Call for users active bingethers
     self.getUsrsActBRs = function(){
-        $http.get( url )
+        $http.get( personalBRsurl )
         .then( function( response ){
-            self.pbs = response.data;
-
+            self.brs = response.data;
+            response.data.forEach(function( e, i ){
+                $http.get( commentByPostBaseURL + e.id + '/').then(
+                    function( response ){
+                        self.brs[i].comments = response.data.reverse();
+                    })
+            });
         },
         // Error behavior
         function( response ){
@@ -17,7 +24,5 @@ var self = this,
             console.log( response.data.error );
         });
     };
-
-    // Calls API call
     self.getUsrsActBRs()
 });
