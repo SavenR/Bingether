@@ -186,3 +186,16 @@
 </div>
 <!-- Page Specific Scripts -->
 <script type="text/javascript" rel="javascript" src=""></script>
+
+<div ng-click="pc.showModal()">Open Modal</div>
+
+<div id="openModal" class=" modalDialog row" ng-class="{transition: pc.formTransition, show: pc.formEntry}">
+    <div class="modalHolder col-md-12">
+        <a title="Close" class="close" ng-click="pc.hideModal()">X</a>
+        <form class="col-md-12">
+            <h1 class="col-md-12">Create a new Bingether Request</h1>
+
+        </form>
+
+    </div>
+</div>

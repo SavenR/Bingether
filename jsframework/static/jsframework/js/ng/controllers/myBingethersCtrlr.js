@@ -25,4 +25,13 @@ app.controller('myBingethersC', function($http){
         });
     };
     self.getUsrsActBRs()
+    self.formEntry = false;
+
+    self.showModal = function(){
+        self.formEntry = true;
+        self.formTransition = true;
+    };
+    self.hideModal = function(){
+        self.formEntry = false;
+    }
 });
