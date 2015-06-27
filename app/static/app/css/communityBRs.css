@@ -73,6 +73,9 @@ h1 {
 .comment {
     border-bottom: 1px dashed #bbb;
 }
+.comment .signature {
+    padding-top: 8px;
+}
 .comment.dtPosted {
     border-bottom: none;
 }
