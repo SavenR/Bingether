@@ -27,7 +27,21 @@
 
             </div>
             <ul class="navbar-right col-md-8 navItems">
-
+                <div class="hidden-md hidden-lg dropdown" id="cssmenu">
+                    <a class="navItem dropdown-toggle has-sub" type="button" id="mobileMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">MENU<span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="mobileMenu">
+                        {% if user.is_authenticated %}
+                        <li><a  class="navItem hidden-xs hidden-sm" href="{% url 'logout' %}">LOGOUT
+                        {% else %}
+                        <li><a  class="navItem login hidden-xs hidden-sm" href="{% url 'login' %}"><span>SIGN IN | JOIN</span>
+                        {% endif %}
+                        </a></li>
+                        <li><a  class="navItem hidden-xs hidden-sm" href="../#/search">SEARCH</a></li>
+                        <li><a  class="navItem hidden-xs hidden-sm" href="../#/binge_list">PERSONAL BINGES</a></li>
+                        <li><a  class="navItem hidden-xs hidden-sm" href="../#/my_bingethers">MY BINGETHERS</a></li>
+                        <li class="last"><a  class="navItem hidden-xs hidden-sm" href="../#/community">COMMUNITY</a></li>
+                    </ul>
+                </div>
                 {% if user.is_authenticated %}
                 <a  class="navItem hidden-xs hidden-sm" href="{% url 'logout' %}">LOGOUT
                 {% else %}
