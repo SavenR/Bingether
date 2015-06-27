@@ -175,3 +175,9 @@ h1 {
     margin: 20px auto;
     width: 33%;
 }
+.comment .signature {
+    padding-top: 8px;
+}
+form h1 {
+    color: #5b3c3c;
+}

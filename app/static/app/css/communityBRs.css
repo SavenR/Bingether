@@ -175,3 +175,6 @@ h1 {
     margin: 20px auto;
     width: 33%;
 }
+form h1 {
+    color: #5b3c3c;
+}
